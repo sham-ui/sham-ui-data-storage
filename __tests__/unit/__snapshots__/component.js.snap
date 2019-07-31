@@ -1,0 +1,253 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`component base: after update firstName & wait updating 1`] = `
+Object {
+  "Constructor": "ComponentWithStorage",
+  "Options": Object {
+    "ID": "component",
+    "containerSelector": "body",
+    "types": Array [],
+    "user": Object {
+      "firstName": "Jordan",
+      "lastName": "Smith",
+    },
+  },
+  "html": "
+<dl>
+  <dt>First name</dt>
+  <dd>Jordan</dd>
+  <dt>Last name</dt>
+  <dd>Smith</dd>
+</dl>
+",
+}
+`;
+
+exports[`component base: after update firstName 1`] = `
+Object {
+  "Constructor": "ComponentWithStorage",
+  "Options": Object {
+    "ID": "component",
+    "containerSelector": "body",
+    "types": Array [],
+    "user": Object {
+      "firstName": "Jordan",
+      "lastName": "Smith",
+    },
+  },
+  "html": "
+<dl>
+  <dt>First name</dt>
+  <dd>John</dd>
+  <dt>Last name</dt>
+  <dd>Smith</dd>
+</dl>
+",
+}
+`;
+
+exports[`component base: after update lastName & wait updating 1`] = `
+Object {
+  "Constructor": "ComponentWithStorage",
+  "Options": Object {
+    "ID": "component",
+    "containerSelector": "body",
+    "types": Array [],
+    "user": Object {
+      "firstName": "Jordan",
+      "lastName": "Shah",
+    },
+  },
+  "html": "
+<dl>
+  <dt>First name</dt>
+  <dd>Jordan</dd>
+  <dt>Last name</dt>
+  <dd>Smith</dd>
+</dl>
+",
+}
+`;
+
+exports[`component base: after update lastName 1`] = `
+Object {
+  "Constructor": "ComponentWithStorage",
+  "Options": Object {
+    "ID": "component",
+    "containerSelector": "body",
+    "types": Array [],
+    "user": Object {
+      "firstName": "Jordan",
+      "lastName": "Shah",
+    },
+  },
+  "html": "
+<dl>
+  <dt>First name</dt>
+  <dd>Jordan</dd>
+  <dt>Last name</dt>
+  <dd>Smith</dd>
+</dl>
+",
+}
+`;
+
+exports[`component base: initial 1`] = `
+Object {
+  "Constructor": "ComponentWithStorage",
+  "Options": Object {
+    "ID": "component",
+    "containerSelector": "body",
+    "types": Array [],
+    "user": Object {
+      "firstName": "John",
+      "lastName": "Smith",
+    },
+  },
+  "html": "
+<dl>
+  <dt>First name</dt>
+  <dd>John</dd>
+  <dt>Last name</dt>
+  <dd>Smith</dd>
+</dl>
+",
+}
+`;
+
+exports[`component base: lastName don't changed 1`] = `
+Object {
+  "Constructor": "ComponentWithStorage",
+  "Options": Object {
+    "ID": "component",
+    "containerSelector": "body",
+    "types": Array [],
+    "user": Object {
+      "firstName": "Jordan",
+      "lastName": "Shah",
+    },
+  },
+  "html": "
+<dl>
+  <dt>First name</dt>
+  <dd>Jordan</dd>
+  <dt>Last name</dt>
+  <dd>Shah</dd>
+</dl>
+",
+}
+`;
+
+exports[`component remove: after firstName & lastName 1`] = `
+Object {
+  "Constructor": "dummy",
+  "Options": Object {
+    "ID": "component",
+    "containerSelector": "body",
+    "test": true,
+    "types": Array [],
+  },
+  "html": "
+<dl>
+  <dt>First name</dt>
+  <dd>John</dd>
+  <dt>Last name</dt>
+  <dd>Smith</dd>
+</dl>
+<!--UserInfo-->
+<!--if-->
+",
+}
+`;
+
+exports[`component remove: after update firstName 1`] = `
+Object {
+  "Constructor": "dummy",
+  "Options": Object {
+    "ID": "component",
+    "containerSelector": "body",
+    "test": true,
+    "types": Array [],
+  },
+  "html": "
+<dl>
+  <dt>First name</dt>
+  <dd>Jordan</dd>
+  <dt>Last name</dt>
+  <dd>Smith</dd>
+</dl>
+<!--UserInfo-->
+<!--if-->
+",
+}
+`;
+
+exports[`component remove: after update lastName 1`] = `
+Object {
+  "Constructor": "dummy",
+  "Options": Object {
+    "ID": "component",
+    "containerSelector": "body",
+    "test": false,
+    "types": Array [],
+  },
+  "html": "<!--if-->",
+}
+`;
+
+exports[`component remove: initial 1`] = `
+Object {
+  "Constructor": "dummy",
+  "Options": Object {
+    "ID": "component",
+    "containerSelector": "body",
+    "test": true,
+    "types": Array [],
+  },
+  "html": "
+<dl>
+  <dt>First name</dt>
+  <dd>John</dd>
+  <dt>Last name</dt>
+  <dd>Smith</dd>
+</dl>
+<!--UserInfo-->
+<!--if-->
+",
+}
+`;
+
+exports[`component remove: test === false 1`] = `
+Object {
+  "Constructor": "dummy",
+  "Options": Object {
+    "ID": "component",
+    "containerSelector": "body",
+    "test": false,
+    "types": Array [],
+  },
+  "html": "<!--if-->",
+}
+`;
+
+exports[`component remove: test === true 1`] = `
+Object {
+  "Constructor": "dummy",
+  "Options": Object {
+    "ID": "component",
+    "containerSelector": "body",
+    "test": true,
+    "types": Array [],
+  },
+  "html": "
+<dl>
+  <dt>First name</dt>
+  <dd>Jordan</dd>
+  <dt>Last name</dt>
+  <dd>Shah</dd>
+</dl>
+<!--UserInfo-->
+<!--if-->
+",
+}
+`;

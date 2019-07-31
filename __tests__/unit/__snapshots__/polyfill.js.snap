@@ -1,0 +1,139 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`with setImmediate polyfill: after update firstName & wait updating 1`] = `
+Object {
+  "Constructor": "ComponentWithStorage",
+  "Options": Object {
+    "ID": "component",
+    "containerSelector": "body",
+    "types": Array [],
+    "user": Object {
+      "firstName": "Jordan",
+      "lastName": "Smith",
+    },
+  },
+  "html": "
+<dl>
+  <dt>First name</dt>
+  <dd>Jordan</dd>
+  <dt>Last name</dt>
+  <dd>Smith</dd>
+</dl>
+",
+}
+`;
+
+exports[`with setImmediate polyfill: after update firstName 1`] = `
+Object {
+  "Constructor": "ComponentWithStorage",
+  "Options": Object {
+    "ID": "component",
+    "containerSelector": "body",
+    "types": Array [],
+    "user": Object {
+      "firstName": "Jordan",
+      "lastName": "Smith",
+    },
+  },
+  "html": "
+<dl>
+  <dt>First name</dt>
+  <dd>John</dd>
+  <dt>Last name</dt>
+  <dd>Smith</dd>
+</dl>
+",
+}
+`;
+
+exports[`with setImmediate polyfill: after update lastName & wait updating 1`] = `
+Object {
+  "Constructor": "ComponentWithStorage",
+  "Options": Object {
+    "ID": "component",
+    "containerSelector": "body",
+    "types": Array [],
+    "user": Object {
+      "firstName": "Jordan",
+      "lastName": "Shah",
+    },
+  },
+  "html": "
+<dl>
+  <dt>First name</dt>
+  <dd>Jordan</dd>
+  <dt>Last name</dt>
+  <dd>Smith</dd>
+</dl>
+",
+}
+`;
+
+exports[`with setImmediate polyfill: after update lastName 1`] = `
+Object {
+  "Constructor": "ComponentWithStorage",
+  "Options": Object {
+    "ID": "component",
+    "containerSelector": "body",
+    "types": Array [],
+    "user": Object {
+      "firstName": "Jordan",
+      "lastName": "Shah",
+    },
+  },
+  "html": "
+<dl>
+  <dt>First name</dt>
+  <dd>Jordan</dd>
+  <dt>Last name</dt>
+  <dd>Smith</dd>
+</dl>
+",
+}
+`;
+
+exports[`with setImmediate polyfill: initial 1`] = `
+Object {
+  "Constructor": "ComponentWithStorage",
+  "Options": Object {
+    "ID": "component",
+    "containerSelector": "body",
+    "types": Array [],
+    "user": Object {
+      "firstName": "John",
+      "lastName": "Smith",
+    },
+  },
+  "html": "
+<dl>
+  <dt>First name</dt>
+  <dd>John</dd>
+  <dt>Last name</dt>
+  <dd>Smith</dd>
+</dl>
+",
+}
+`;
+
+exports[`with setImmediate polyfill: lastName don't changed 1`] = `
+Object {
+  "Constructor": "ComponentWithStorage",
+  "Options": Object {
+    "ID": "component",
+    "containerSelector": "body",
+    "types": Array [],
+    "user": Object {
+      "firstName": "Jordan",
+      "lastName": "Shah",
+    },
+  },
+  "html": "
+<dl>
+  <dt>First name</dt>
+  <dd>Jordan</dd>
+  <dt>Last name</dt>
+  <dd>Shah</dd>
+</dl>
+",
+}
+`;

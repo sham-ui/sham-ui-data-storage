@@ -1,0 +1,29 @@
+<template>
+    <main>
+        <pre>
+            sham-ui-data-storage
+        </pre>
+        <p>
+        <dl>
+            <dt>Name:</dt>
+            <dd>{{user.name}}</dd>
+        </dl>
+        </p>
+        <p>
+            <input :oninput={{onInputName}} value={{user.name}}>
+        </p>
+    </main>
+</template>
+
+
+<script>
+    import { options } from 'sham-ui';
+    import { useStorage } from '../storages/user';
+
+    @useStorage( 'user' )
+    class App extends Template {
+        @options onInputName() {}
+    }
+
+    export default App;
+</script>
