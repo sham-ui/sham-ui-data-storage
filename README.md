@@ -5,12 +5,12 @@
 ## Install
 ```bash
 # npm
-npm install sham-ui-data-storage
+npm install -D sham-ui-data-storage
 ```
 
 ```bash
 # yarn
-yarn add sham-ui-data-storage
+yarn add sham-ui-data-storage --dev
 ```
 
 ## Usage
