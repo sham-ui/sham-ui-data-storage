@@ -10,7 +10,8 @@ import createProxy from './proxy';
  */
 export default function useStorageInComponent( componentClass, storageName, storage, fields ) {
     const proxyByInstance = new WeakMap();
-    class ComponentWithStorage extends componentClass {
+
+    return class ComponentWithStorage extends componentClass {
         constructor() {
             super( ...arguments );
             proxyByInstance.set( this, createProxy( this, storage, fields ) );
@@ -20,14 +21,16 @@ export default function useStorageInComponent( componentClass, storageName, stor
             proxyByInstance.get( this ).destroy();
             proxyByInstance.delete( this );
         }
-    }
 
-    // Manual add decorator
-    options( ComponentWithStorage.prototype, storageName, {
-        get: function() {
-            return proxyByInstance.get( this ).proxy;
+        configureOptions() {
+
+            // Manual add decorator
+            options( this, storageName, {
+                get: function() {
+                    return proxyByInstance.get( this ).proxy;
+                }
+            } );
+            super.configureOptions( ...arguments );
         }
-    } );
-
-    return ComponentWithStorage;
+    };
 }

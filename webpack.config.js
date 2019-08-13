@@ -16,7 +16,8 @@ module.exports = {
         libraryTarget: 'umd'
     },
     externals: [
-        'sham-ui'
+        'sham-ui',
+        /^(core-js)/
     ],
     plugins: plugins,
     module: {
