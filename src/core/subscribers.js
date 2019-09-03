@@ -33,9 +33,16 @@ function setImmediatePolyfill( cb ) {
 /**
  * @param {Set<Function>} callbacks
  */
-export default function debounceSubscribers( callbacks ) {
-    ( window.setImmediate || setImmediatePolyfill )( () => {
-        callbacks.forEach( cb => cb() );
-        callbacks.clear();
-    } );
+export function runSubscribers( callbacks ) {
+    callbacks.forEach( cb => cb() );
+    callbacks.clear();
+}
+
+/**
+ * @param {Set<Function>} callbacks
+ */
+export function debounceSubscribers( callbacks ) {
+    ( window.setImmediate || setImmediatePolyfill )(
+        () => runSubscribers( callbacks )
+    );
 }

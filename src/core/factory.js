@@ -1,4 +1,4 @@
-import debounceSubscribers from './subscribers';
+import { debounceSubscribers, runSubscribers } from './subscribers';
 
 /**
  * @param {String[]} fields
@@ -35,6 +35,12 @@ export default function storageFactory( fields, defaultValues ) {
                     subscribersByField.get( field ).clear();
                     internalStorage.set( field, defaultValues[ field ] );
                 } );
+            }
+        },
+        sync: {
+            enumerable: false,
+            value: function() {
+                runSubscribers( deferredSubscribers );
             }
         }
     } );

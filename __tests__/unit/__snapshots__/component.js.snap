@@ -251,3 +251,118 @@ Object {
 ",
 }
 `;
+
+exports[`component sync: after update firstName & wait updating 1`] = `
+Object {
+  "Constructor": "ComponentWithStorage",
+  "Options": Object {
+    "ID": "component",
+    "containerSelector": "body",
+    "types": Array [],
+    "user": Object {
+      "firstName": "Jordan",
+      "lastName": "Smith",
+    },
+  },
+  "html": "
+<dl>
+  <dt>First name</dt>
+  <dd>Jordan</dd>
+  <dt>Last name</dt>
+  <dd>Smith</dd>
+</dl>
+",
+}
+`;
+
+exports[`component sync: after update firstName 1`] = `
+Object {
+  "Constructor": "ComponentWithStorage",
+  "Options": Object {
+    "ID": "component",
+    "containerSelector": "body",
+    "types": Array [],
+    "user": Object {
+      "firstName": "Jordan",
+      "lastName": "Smith",
+    },
+  },
+  "html": "
+<dl>
+  <dt>First name</dt>
+  <dd>John</dd>
+  <dt>Last name</dt>
+  <dd>Smith</dd>
+</dl>
+",
+}
+`;
+
+exports[`component sync: after update lastName & wait updating 1`] = `
+Object {
+  "Constructor": "ComponentWithStorage",
+  "Options": Object {
+    "ID": "component",
+    "containerSelector": "body",
+    "types": Array [],
+    "user": Object {
+      "firstName": "Jordan",
+      "lastName": "Shah",
+    },
+  },
+  "html": "
+<dl>
+  <dt>First name</dt>
+  <dd>Jordan</dd>
+  <dt>Last name</dt>
+  <dd>Smith</dd>
+</dl>
+",
+}
+`;
+
+exports[`component sync: after update lastName 1`] = `
+Object {
+  "Constructor": "ComponentWithStorage",
+  "Options": Object {
+    "ID": "component",
+    "containerSelector": "body",
+    "types": Array [],
+    "user": Object {
+      "firstName": "Jordan",
+      "lastName": "Shah",
+    },
+  },
+  "html": "
+<dl>
+  <dt>First name</dt>
+  <dd>Jordan</dd>
+  <dt>Last name</dt>
+  <dd>Smith</dd>
+</dl>
+",
+}
+`;
+
+exports[`component sync: lastName don't changed 1`] = `
+Object {
+  "Constructor": "ComponentWithStorage",
+  "Options": Object {
+    "ID": "component",
+    "containerSelector": "body",
+    "types": Array [],
+    "user": Object {
+      "firstName": "Jordan",
+      "lastName": "Shah",
+    },
+  },
+  "html": "
+<dl>
+  <dt>First name</dt>
+  <dd>Jordan</dd>
+  <dt>Last name</dt>
+  <dd>Shah</dd>
+</dl>
+",
+}
+`;

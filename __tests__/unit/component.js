@@ -98,4 +98,42 @@ describe( 'component', () => {
         await updating();
         expect( meta.toJSON() ).toMatchSnapshot( 'after firstName & lastName' );
     } );
+
+    it( 'sync', () => {
+        const { storage, useStorage }  = createStorage( {
+            firstName: 'John',
+            lastName: 'Smith'
+        } );
+
+        const meta = renderer(
+            compileAsSFC( {
+                useStorage
+            } )`
+                <template>
+                    <dl>
+                        <dt>First name</dt>
+                        <dd>{{user.firstName}}</dd>
+                        <dt>Last name</dt>
+                        <dd>{{user.lastName}}</dd>
+                    </dl>
+                </template>
+                <script>
+                    @useStorage( 'user' )
+                    class Component extends Template {}
+                    export default Component;
+                </script>
+            `
+        );
+        storage.firstName = 'Jordan';
+        expect( meta.toJSON() ).toMatchSnapshot( 'after update firstName' );
+        storage.sync();
+        expect( meta.toJSON() ).toMatchSnapshot( 'after update firstName & wait updating' );
+        storage.lastName = 'Shah';
+        expect( meta.toJSON() ).toMatchSnapshot( 'after update lastName' );
+        expect( meta.toJSON() ).toMatchSnapshot( 'after update lastName & wait updating' );
+        storage.lastName = 'Shah';
+        storage.sync();
+        expect( meta.toJSON() ).toMatchSnapshot( 'lastName don\'t changed' );
+    } );
+
 } );

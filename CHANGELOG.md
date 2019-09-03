@@ -1,3 +1,6 @@
+## 0.0.3
+* Add `storage.sync` method
+
 ## 0.0.2 
 * Add `browserlist`
 
