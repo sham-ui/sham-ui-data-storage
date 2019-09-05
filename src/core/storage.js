@@ -8,8 +8,12 @@ import storageFactory from './factory';
  * @return {{storage: {}, useStorage: (function())}}
  */
 export default function createStorage( fieldsWithDefault, options = {} ) {
+
+    // By default LIFO disabled
+    const { LIFO = false } = options;
+
     const fields = Object.keys( fieldsWithDefault );
-    const storage = storageFactory( fields, fieldsWithDefault );
+    const storage = storageFactory( fields, fieldsWithDefault, LIFO );
 
     // Registry in DI
     if ( undefined !== options.DI ) {

@@ -32,17 +32,25 @@ function setImmediatePolyfill( cb ) {
 
 /**
  * @param {Set<Function>} callbacks
+ * @param {Boolean} LIFO
  */
-export function runSubscribers( callbacks ) {
-    callbacks.forEach( cb => cb() );
+export function runSubscribers( callbacks, LIFO ) {
+    (
+        LIFO ?
+            [ ...callbacks ].reverse() :
+            callbacks
+    ).forEach(
+        cb => cb()
+    );
     callbacks.clear();
 }
 
 /**
  * @param {Set<Function>} callbacks
+ * @param {Boolean} LIFO
  */
-export function debounceSubscribers( callbacks ) {
+export function debounceSubscribers( callbacks, LIFO ) {
     ( window.setImmediate || setImmediatePolyfill )(
-        () => runSubscribers( callbacks )
+        () => runSubscribers( callbacks, LIFO )
     );
 }

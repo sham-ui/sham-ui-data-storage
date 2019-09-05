@@ -39,6 +39,28 @@ describe( 'base', () => {
         expect( storage.firstName ).toBe( DEFAULT_FIRST_NAME );
         expect( storage.lastName ).toBe( DEFAULT_LAST_NAME );
     } );
+
+    it( 'callback call in insert order (FIFO)', () => {
+        const calls = [];
+        storage.addWatcher( 'firstName', () => calls.push( 'first inserted' ) );
+        storage.addWatcher( 'firstName', () => calls.push( 'second inserted' ) );
+        storage.firstName = 'Adam';
+        storage.sync();
+        expect( calls ).toEqual( [ 'first inserted', 'second inserted' ] );
+    } );
+
+    it( 'callback call in reverse insert order (LIFO)', () => {
+        const calls = [];
+        const { storage } = createStorage( {
+            firstName: DEFAULT_FIRST_NAME,
+            lastName: DEFAULT_LAST_NAME
+        }, { LIFO: true } );
+        storage.addWatcher( 'firstName', () => calls.push( 'first inserted' ) );
+        storage.addWatcher( 'firstName', () => calls.push( 'second inserted' ) );
+        storage.firstName = 'Adam';
+        storage.sync();
+        expect( calls ).toEqual( [ 'second inserted', 'first inserted' ] );
+    } );
 } );
 
 describe( 'di', () => {

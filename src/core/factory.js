@@ -3,9 +3,10 @@ import { debounceSubscribers, runSubscribers } from './subscribers';
 /**
  * @param {String[]} fields
  * @param {Object} defaultValues
+ * @param {Boolean} LIFO
  * @return Storage
  */
-export default function storageFactory( fields, defaultValues ) {
+export default function storageFactory( fields, defaultValues, LIFO ) {
     const subscribersByField = new Map();
     const internalStorage = new Map();
     const deferredSubscribers = new Set();
@@ -40,7 +41,7 @@ export default function storageFactory( fields, defaultValues ) {
         sync: {
             enumerable: false,
             value: function() {
-                runSubscribers( deferredSubscribers );
+                runSubscribers( deferredSubscribers, LIFO );
             }
         }
     } );
@@ -71,7 +72,7 @@ export default function storageFactory( fields, defaultValues ) {
                     );
 
                     // Async execute deferredSubscribers
-                    debounceSubscribers( deferredSubscribers );
+                    debounceSubscribers( deferredSubscribers, LIFO );
                 }
             }
         } );
