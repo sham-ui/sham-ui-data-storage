@@ -1,6 +1,10 @@
 # sham-ui-data-storage
 
-> Data storage for sham-ui
+[![Build Status](https://travis-ci.com/sham-ui/sham-ui-data-storage.svg?branch=master)](https://travis-ci.com/sham-ui/sham-ui-data-storage)
+[![npm version](https://badge.fury.io/js/sham-ui-data-storage.svg)](https://badge.fury.io/js/sham-ui-data-storage)
+[![MIT Licence](https://badges.frapsoft.com/os/mit/mit.svg?v=103)](https://opensource.org/licenses/mit-license.php)
+
+ Data storage for sham-ui
 
 ## Install
 ```bash
@@ -12,6 +16,8 @@ npm install -D sham-ui-data-storage
 # yarn
 yarn add sham-ui-data-storage --dev
 ```
+
+## API
 
 ## Usage
 Create storage:
