@@ -1,6 +1,7 @@
 ## master
 * Update dependencies
 * Add travis-ci
+* Add API documentation
 
 ## 0.0.3
 * Add `storage.sync` method

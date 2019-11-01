@@ -3,10 +3,11 @@ import createProxy from './proxy';
 
 /**
  * @param {Function} componentClass
- * @param {String} storageName
+ * @param {string} storageName
  * @param {Storage} storage
- * @param {String[]} fields
+ * @param {string[]} fields
  * @return {ComponentWithStorage}
+ * @private
  */
 export default function useStorageInComponent( componentClass, storageName, storage, fields ) {
     const proxyByInstance = new WeakMap();

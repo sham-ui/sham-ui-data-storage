@@ -1,6 +1,7 @@
 /**
- * @url https://github.com/Octane/setImmediate
+ * @see https://github.com/Octane/setImmediate
  * @type {Function}
+ * @private
  */
 let uid = 0;
 const storage = {};
@@ -32,7 +33,8 @@ function setImmediatePolyfill( cb ) {
 
 /**
  * @param {Set<Function>} callbacks
- * @param {Boolean} LIFO
+ * @param {boolean} LIFO
+ * @private
  */
 export function runSubscribers( callbacks, LIFO ) {
     (
@@ -47,7 +49,8 @@ export function runSubscribers( callbacks, LIFO ) {
 
 /**
  * @param {Set<Function>} callbacks
- * @param {Boolean} LIFO
+ * @param {boolean} LIFO
+ * @private
  */
 export function debounceSubscribers( callbacks, LIFO ) {
     ( window.setImmediate || setImmediatePolyfill )(

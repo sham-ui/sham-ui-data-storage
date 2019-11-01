@@ -1,10 +1,15 @@
 import { debounceSubscribers, runSubscribers } from './subscribers';
 
 /**
- * @param {String[]} fields
+ * @class {Object} Storage
+ */
+
+/**
+ * @param {string[]} fields
  * @param {Object} defaultValues
- * @param {Boolean} LIFO
+ * @param {boolean} LIFO
  * @return Storage
+ * @private
  */
 export default function storageFactory( fields, defaultValues, LIFO ) {
     const subscribersByField = new Map();
@@ -13,14 +18,31 @@ export default function storageFactory( fields, defaultValues, LIFO ) {
 
     /**
      * @type {Storage}
+     * @inner
      */
     const storage = Object.defineProperties( {}, {
+
+        /**
+         * Add watcher for field
+         * @memberof Storage
+         * @function
+         * @param {string} field Name of field
+         * @param {Function} cb Callback
+         */
         addWatcher: {
             enumerable: false,
             value: function( field, cb ) {
                 subscribersByField.get( field ).add( cb );
             }
         },
+
+        /**
+         * Remove watcher for field
+         * @memberof Storage
+         * @function
+         * @param {string} field Name of field
+         * @param {Function} cb Callback
+         */
         removeWatcher: {
             enumerable: false,
             value: function( field, cb ) {
@@ -28,6 +50,12 @@ export default function storageFactory( fields, defaultValues, LIFO ) {
                 subscribersByField.get( field ).delete( cb );
             }
         },
+
+        /**
+         * Remove all watchers & reset storage field to default values
+         * @memberof Storage
+         * @function
+         */
         reset: {
             enumerable: false,
             value: function() {
@@ -38,6 +66,12 @@ export default function storageFactory( fields, defaultValues, LIFO ) {
                 } );
             }
         },
+
+        /**
+         * Run all deferred subscribers immediate
+         * @memberof Storage
+         * @function
+         */
         sync: {
             enumerable: false,
             value: function() {

@@ -2,8 +2,9 @@
  * Create proxy storage for component
  * @param {Object} component
  * @param {Storage} storage
- * @param {String[]} fields
+ * @param {string[]} fields
  * @return {{proxy: {}, destroy: (function())}}
+ * @private
  */
 export default function createProxy( component, storage, fields ) {
     const update = component.update.bind( component );

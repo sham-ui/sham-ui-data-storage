@@ -118,9 +118,8 @@ describe( 'component', () => {
                     </dl>
                 </template>
                 <script>
-                    @useStorage( 'user' )
                     class Component extends Template {}
-                    export default Component;
+                    export default useStorage( 'user' )( Component );
                 </script>
             `
         );
