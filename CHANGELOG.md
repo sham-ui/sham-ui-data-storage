@@ -1,4 +1,4 @@
-## master
+## 1.0.0
 * Update dependencies
 * Add travis-ci
 * Add API documentation
