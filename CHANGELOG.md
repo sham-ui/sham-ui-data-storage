@@ -1,3 +1,7 @@
+## 1.0.1
+* Fix a demo app
+* Update `sham-ui`
+
 ## 1.0.0
 * Update dependencies
 * Add travis-ci

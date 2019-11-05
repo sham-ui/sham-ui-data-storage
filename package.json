@@ -3,7 +3,7 @@
   "description": "Data storage for sham-ui",
   "author": "Eugeny Burnashov <shamcode@gmail.com>",
   "main": "index.js",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "license": "MIT",
   "scripts": {
     "start": "node demo-app/server.js",
@@ -59,7 +59,7 @@
     "webpack-hot-middleware": "^2.22.3"
   },
   "dependencies": {
-    "sham-ui": "^3.3.0"
+    "sham-ui": "^4.0.0"
   },
   "babel": {
     "presets": [

@@ -6,7 +6,7 @@ export default function() {
     new App( {
         directives,
         ID: 'app',
-        containerSelector: 'body',
+        container: document.querySelector( 'body' ),
         onInputName( e ) {
             e.preventDefault();
             storage.name = e.target.value;
