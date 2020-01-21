@@ -40,6 +40,17 @@ describe( 'base', () => {
         expect( storage.lastName ).toBe( DEFAULT_LAST_NAME );
     } );
 
+    it( 'async run deferred watcher callback', async() => {
+        expect.assertions( 3 );
+        const calls = [];
+        storage.addWatcher( 'firstName', () => calls.push( 'first inserted' ) );
+        storage.firstName = 'Adam';
+        expect( storage.firstName ).toBe( 'Adam' );
+        expect( calls ).toEqual( [] );
+        await new Promise( resolve => setImmediate( resolve ) );
+        expect( calls ).toEqual( [ 'first inserted' ] );
+    } );
+
     it( 'callback call in insert order (FIFO)', () => {
         const calls = [];
         storage.addWatcher( 'firstName', () => calls.push( 'first inserted' ) );
@@ -60,6 +71,24 @@ describe( 'base', () => {
         storage.firstName = 'Adam';
         storage.sync();
         expect( calls ).toEqual( [ 'second inserted', 'first inserted' ] );
+    } );
+
+    it( 'disable async with sync options', async() => {
+        expect.assertions( 4 );
+        const calls = [];
+        const { storage } = createStorage( {
+            firstName: DEFAULT_FIRST_NAME,
+            lastName: DEFAULT_LAST_NAME
+        }, { sync: true } );
+        storage.addWatcher( 'firstName', () => calls.push( 'first inserted' ) );
+        storage.addWatcher( 'firstName', () => calls.push( 'second inserted' ) );
+        storage.firstName = 'Adam';
+        expect( storage.firstName ).toBe( 'Adam' );
+        expect( calls ).toEqual( [] );
+        await new Promise( resolve => setImmediate( resolve ) );
+        expect( calls ).toEqual( [] );
+        storage.sync();
+        expect( calls ).toEqual( [ 'first inserted', 'second inserted' ] );
     } );
 } );
 

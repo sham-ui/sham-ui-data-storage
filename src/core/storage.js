@@ -5,8 +5,9 @@ import storageFactory from './factory';
 /**
  * Options for `createStorage`
  * @typedef {Object} CreateStorageOptions
- * @property {string} DI Registry storage in DI with this key
- * @property {boolean} LIFO Use LIFO (last input first output) for storage subscribers
+ * @property {string} DI Registry storage in DI with this key. By default not specified.
+ * @property {boolean} LIFO Use LIFO (last input first output) for storage subscribers. By default false
+ * @property {boolean} sync Disable async run watchers callback. Callbacks will run only after call `sync` storage method. By default false
  */
 
 /**
@@ -25,11 +26,13 @@ import storageFactory from './factory';
  */
 export default function createStorage( fieldsWithDefault, options = {} ) {
 
-    // By default LIFO disabled
-    const { LIFO = false } = options;
+    const {
+        LIFO = false, // By default LIFO disabled
+        sync = false  // By default sync disabled
+    } = options;
 
     const fields = Object.keys( fieldsWithDefault );
-    const storage = storageFactory( fields, fieldsWithDefault, LIFO );
+    const storage = storageFactory( fields, fieldsWithDefault, { LIFO, sync } );
 
     // Registry in DI
     if ( undefined !== options.DI ) {

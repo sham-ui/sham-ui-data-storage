@@ -71,8 +71,9 @@ Type: [Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Globa
 
 #### Properties
 
--   `DI` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** Registry storage in DI with this key
--   `LIFO` **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** Use LIFO (last input first output) for storage subscribers
+-   `DI` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** Registry storage in DI with this key. By default not specified.
+-   `LIFO` **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** Use LIFO (last input first output) for storage subscribers. By default false
+-   `sync` **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** Disable async run watchers callback. Callbacks will run only after call `sync` storage method. By default false
 
 ### useStorage
 

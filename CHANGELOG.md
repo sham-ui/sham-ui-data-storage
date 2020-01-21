@@ -1,3 +1,6 @@
+## 1.0.2
+* Option `sync` for disable async run deferred calbacks
+
 ## 1.0.1
 * Fix a demo app
 * Update `sham-ui`
