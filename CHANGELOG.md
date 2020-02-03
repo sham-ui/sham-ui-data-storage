@@ -1,3 +1,7 @@
+## 1.0.3
+* Update dependencies
+* Add `.travis.yml` to `.npmignore`
+
 ## 1.0.2
 * Option `sync` for disable async run deferred calbacks
 

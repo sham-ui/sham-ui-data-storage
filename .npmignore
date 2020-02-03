@@ -4,6 +4,7 @@ node_modules
 .DS_Store
 .idea
 .eslintrc.js
+.travis.yml
 Thumbs.db
 
 /coverage/
