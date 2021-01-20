@@ -1,3 +1,6 @@
+## 1.2.0
+* Fix component-wrapper
+
 ## 1.1.0
 * Update dependencies
 

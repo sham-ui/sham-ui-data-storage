@@ -27,7 +27,7 @@ export default function useStorageInComponent( componentClass, storageName, stor
 
             // Manual add decorator
             options( this, storageName, {
-                get: function() {
+                get: () => {
                     return proxyByInstance.get( this ).proxy;
                 }
             } );
