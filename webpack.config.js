@@ -17,6 +17,7 @@ module.exports = {
     },
     externals: [
         'sham-ui',
+        'nanoid',
         /^(core-js)/
     ],
     plugins: plugins,

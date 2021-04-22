@@ -24,11 +24,11 @@ yarn add sham-ui-data-storage --dev
 
 #### Table of Contents
 
+-   [CreateStorageOptions](#createstorageoptions)
+    -   [Properties](#properties)
 -   [createStorage](#createstorage)
     -   [Parameters](#parameters)
     -   [Examples](#examples)
--   [CreateStorageOptions](#createstorageoptions)
-    -   [Properties](#properties)
 -   [useStorage](#usestorage)
     -   [Parameters](#parameters-1)
     -   [Examples](#examples-1)
@@ -39,6 +39,17 @@ yarn add sham-ui-data-storage --dev
         -   [Parameters](#parameters-3)
     -   [reset](#reset)
     -   [sync](#sync)
+
+### CreateStorageOptions
+
+Options for `createStorage`
+
+Type: [Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)
+
+#### Properties
+
+-   `LIFO` **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** Use LIFO (last input first output) for storage subscribers. By default false
+-   `sync` **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** Disable async run watchers callback. Callbacks will run only after call `sync` storage method. By default false
 
 ### createStorage
 
@@ -58,22 +69,10 @@ export const { storage, useStorage } = createStorage( {
    email: '',
    sessionValidated: false,
    isAuthenticated: false
-}, { DI: 'session:storage' } );
+} );
 ```
 
 Returns **{storage: [Storage](#storage), useStorage: (function ())}** 
-
-### CreateStorageOptions
-
-Options for `createStorage`
-
-Type: [Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)
-
-#### Properties
-
--   `DI` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** Registry storage in DI with this key. By default not specified.
--   `LIFO` **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** Use LIFO (last input first output) for storage subscribers. By default false
--   `sync` **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** Disable async run watchers callback. Callbacks will run only after call `sync` storage method. By default false
 
 ### useStorage
 

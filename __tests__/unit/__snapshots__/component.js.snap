@@ -140,8 +140,8 @@ Object {
   <dt>Last name</dt>
   <dd>Smith</dd>
 </dl>
-<!--UserInfo-->
-<!--if-->
+<!--0-->
+<!--0-->
 ",
 }
 `;
@@ -160,8 +160,8 @@ Object {
   <dt>Last name</dt>
   <dd>Smith</dd>
 </dl>
-<!--UserInfo-->
-<!--if-->
+<!--0-->
+<!--0-->
 ",
 }
 `;
@@ -173,7 +173,7 @@ Object {
     "ID": "component",
     "test": false,
   },
-  "html": "<!--if-->",
+  "html": "<!--0-->",
 }
 `;
 
@@ -191,8 +191,8 @@ Object {
   <dt>Last name</dt>
   <dd>Smith</dd>
 </dl>
-<!--UserInfo-->
-<!--if-->
+<!--0-->
+<!--0-->
 ",
 }
 `;
@@ -204,7 +204,7 @@ Object {
     "ID": "component",
     "test": false,
   },
-  "html": "<!--if-->",
+  "html": "<!--0-->",
 }
 `;
 
@@ -222,8 +222,8 @@ Object {
   <dt>Last name</dt>
   <dd>Shah</dd>
 </dl>
-<!--UserInfo-->
-<!--if-->
+<!--0-->
+<!--0-->
 ",
 }
 `;

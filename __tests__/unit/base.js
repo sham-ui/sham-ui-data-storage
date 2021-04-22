@@ -1,4 +1,4 @@
-import { DI } from 'sham-ui';
+import { createDI } from 'sham-ui';
 
 import createStorage from '../../src/index';
 
@@ -12,7 +12,7 @@ describe( 'base', () => {
         storage = createStorage( {
             firstName: DEFAULT_FIRST_NAME,
             lastName: DEFAULT_LAST_NAME
-        } ).storage;
+        } ).storage( createDI() );
     } );
 
     it( 'default values', () => {
@@ -62,10 +62,10 @@ describe( 'base', () => {
 
     it( 'callback call in reverse insert order (LIFO)', () => {
         const calls = [];
-        const { storage } = createStorage( {
+        const storage = createStorage( {
             firstName: DEFAULT_FIRST_NAME,
             lastName: DEFAULT_LAST_NAME
-        }, { LIFO: true } );
+        }, { LIFO: true } ).storage( createDI() );
         storage.addWatcher( 'firstName', () => calls.push( 'first inserted' ) );
         storage.addWatcher( 'firstName', () => calls.push( 'second inserted' ) );
         storage.firstName = 'Adam';
@@ -76,10 +76,10 @@ describe( 'base', () => {
     it( 'disable async with sync options', async() => {
         expect.assertions( 4 );
         const calls = [];
-        const { storage } = createStorage( {
+        const storage = createStorage( {
             firstName: DEFAULT_FIRST_NAME,
             lastName: DEFAULT_LAST_NAME
-        }, { sync: true } );
+        }, { sync: true } ).storage( createDI() );
         storage.addWatcher( 'firstName', () => calls.push( 'first inserted' ) );
         storage.addWatcher( 'firstName', () => calls.push( 'second inserted' ) );
         storage.firstName = 'Adam';
@@ -94,7 +94,8 @@ describe( 'base', () => {
 
 describe( 'di', () => {
     it( 'registry', () => {
+        const DI = createDI();
         const { storage } = createStorage( {}, { DI: 'storage:foo' } );
-        expect( DI.resolve( 'storage:foo' ) ).toBe( storage );
+        expect( storage( DI ) ).toBe( DI.resolve( 'storage:foo' ) );
     } );
 } );

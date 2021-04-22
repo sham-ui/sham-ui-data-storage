@@ -33,20 +33,21 @@ it( 'with setImmediate polyfill', async() => {
             </template>
             <script>
                 @useStorage( 'user' )
-                class Component extends Template {}
-                export default Component;
+                class TestComponent extends Template {}
+                export default TestComponent;
             </script>
         `
     );
     expect( meta.toJSON() ).toMatchSnapshot( 'initial' );
-    storage.firstName = 'Jordan';
+    const user = storage( meta.DI );
+    user.firstName = 'Jordan';
     expect( meta.toJSON() ).toMatchSnapshot( 'after update firstName' );
     await updating();
     expect( meta.toJSON() ).toMatchSnapshot( 'after update firstName & wait updating' );
-    storage.lastName = 'Shah';
+    user.lastName = 'Shah';
     expect( meta.toJSON() ).toMatchSnapshot( 'after update lastName' );
     expect( meta.toJSON() ).toMatchSnapshot( 'after update lastName & wait updating' );
-    storage.lastName = 'Shah';
+    user.lastName = 'Shah';
     await updating();
     expect( meta.toJSON() ).toMatchSnapshot( 'lastName don\'t changed' );
 } );

@@ -24,20 +24,22 @@ describe( 'component', () => {
                 </template>
                 <script>
                     @useStorage( 'user' )
-                    class Component extends Template {}
-                    export default Component;
+                    class TestComponent extends Template {}
+                    export default TestComponent;
                 </script>
             `
         );
+        const user = storage( meta.DI );
+
         expect( meta.toJSON() ).toMatchSnapshot( 'initial' );
-        storage.firstName = 'Jordan';
+        user.firstName = 'Jordan';
         expect( meta.toJSON() ).toMatchSnapshot( 'after update firstName' );
         await updating();
         expect( meta.toJSON() ).toMatchSnapshot( 'after update firstName & wait updating' );
-        storage.lastName = 'Shah';
+        user.lastName = 'Shah';
         expect( meta.toJSON() ).toMatchSnapshot( 'after update lastName' );
         expect( meta.toJSON() ).toMatchSnapshot( 'after update lastName & wait updating' );
-        storage.lastName = 'Shah';
+        user.lastName = 'Shah';
         await updating();
         expect( meta.toJSON() ).toMatchSnapshot( 'lastName don\'t changed' );
     } );
@@ -61,8 +63,8 @@ describe( 'component', () => {
             </template>
             <script>
                 @useStorage( 'user' )
-                class Component extends Template {}
-                export default Component;
+                class TestComponent extends Template {}
+                export default TestComponent;
             </script>
         `;
 
@@ -79,22 +81,24 @@ describe( 'component', () => {
             }
         );
         expect( meta.toJSON() ).toMatchSnapshot( 'initial' );
-        storage.firstName = 'Jordan';
+
+        const user = storage( meta.DI );
+        user.firstName = 'Jordan';
         await updating();
         expect( meta.toJSON() ).toMatchSnapshot( 'after update firstName' );
         meta.component.update( {
             test: false
         } );
         expect( meta.toJSON() ).toMatchSnapshot( 'test === false' );
-        storage.lastName = 'Shah';
+        user.lastName = 'Shah';
         await updating();
         expect( meta.toJSON() ).toMatchSnapshot( 'after update lastName' );
         meta.component.update( {
             test: true
         } );
         expect( meta.toJSON() ).toMatchSnapshot( 'test === true' );
-        storage.firstName = 'John';
-        storage.lastName = 'Smith';
+        user.firstName = 'John';
+        user.lastName = 'Smith';
         await updating();
         expect( meta.toJSON() ).toMatchSnapshot( 'after firstName & lastName' );
     } );
@@ -118,20 +122,21 @@ describe( 'component', () => {
                     </dl>
                 </template>
                 <script>
-                    class Component extends Template {}
-                    export default useStorage( 'user' )( Component );
+                    class TestComponent extends Template {}
+                    export default useStorage( 'user' )( TestComponent );
                 </script>
             `
         );
-        storage.firstName = 'Jordan';
+        const user = storage( meta.DI );
+        user.firstName = 'Jordan';
         expect( meta.toJSON() ).toMatchSnapshot( 'after update firstName' );
-        storage.sync();
+        user.sync();
         expect( meta.toJSON() ).toMatchSnapshot( 'after update firstName & wait updating' );
-        storage.lastName = 'Shah';
+        user.lastName = 'Shah';
         expect( meta.toJSON() ).toMatchSnapshot( 'after update lastName' );
         expect( meta.toJSON() ).toMatchSnapshot( 'after update lastName & wait updating' );
-        storage.lastName = 'Shah';
-        storage.sync();
+        user.lastName = 'Shah';
+        user.sync();
         expect( meta.toJSON() ).toMatchSnapshot( 'lastName don\'t changed' );
     } );
 

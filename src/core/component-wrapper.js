@@ -4,18 +4,22 @@ import createProxy from './proxy';
 /**
  * @param {Function} componentClass
  * @param {string} storageName
- * @param {Storage} storage
+ * @param {StorageGetter} storageGetter
  * @param {string[]} fields
  * @return {ComponentWithStorage}
  * @private
  */
-export default function useStorageInComponent( componentClass, storageName, storage, fields ) {
+// eslint-disable-next-line max-len
+export default function useStorageInComponent( componentClass, storageName, storageGetter, fields ) {
     const proxyByInstance = new WeakMap();
 
     return class ComponentWithStorage extends componentClass {
         constructor() {
             super( ...arguments );
-            proxyByInstance.set( this, createProxy( this, storage, fields ) );
+            proxyByInstance.set(
+                this,
+                createProxy( this, storageGetter( this.DI ), fields )
+            );
         }
         remove() {
             super.remove( ...arguments );
