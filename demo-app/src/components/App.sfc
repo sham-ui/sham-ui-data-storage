@@ -17,13 +17,14 @@
 
 
 <script>
-    import { options } from 'sham-ui';
     import { useStorage } from '../storages/user';
 
-    @useStorage( 'user' )
-    class App extends Template {
-        @options onInputName() {}
+    function App( options ) {
+        const onInputName = ref();
+        options( {
+            [ onInputName ]: () => {}
+        } );
     }
 
-    export default App;
+    export default Component( Template, useStorage( ref( 'user' ) ), App );
 </script>

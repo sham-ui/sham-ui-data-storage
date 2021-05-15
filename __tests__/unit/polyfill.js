@@ -32,9 +32,7 @@ it( 'with setImmediate polyfill', async() => {
                 </dl>
             </template>
             <script>
-                @useStorage( 'user' )
-                class TestComponent extends Template {}
-                export default TestComponent;
+                export default Component( Template, useStorage( ref( 'user' ) ) );
             </script>
         `
     );

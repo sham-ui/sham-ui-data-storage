@@ -24,21 +24,37 @@ yarn add sham-ui-data-storage --dev
 
 #### Table of Contents
 
+-   [StorageGetter](#storagegetter)
+    -   [Parameters](#parameters)
 -   [CreateStorageOptions](#createstorageoptions)
     -   [Properties](#properties)
 -   [createStorage](#createstorage)
-    -   [Parameters](#parameters)
-    -   [Examples](#examples)
--   [useStorage](#usestorage)
     -   [Parameters](#parameters-1)
+    -   [Examples](#examples)
+-   [storage](#storage)
+    -   [Parameters](#parameters-2)
+-   [useStorage](#usestorage)
+    -   [Parameters](#parameters-3)
     -   [Examples](#examples-1)
--   [Storage](#storage)
+-   [Storage](#storage-1)
     -   [addWatcher](#addwatcher)
-        -   [Parameters](#parameters-2)
+        -   [Parameters](#parameters-4)
     -   [removeWatcher](#removewatcher)
-        -   [Parameters](#parameters-3)
+        -   [Parameters](#parameters-5)
     -   [reset](#reset)
     -   [sync](#sync)
+
+### StorageGetter
+
+Getter for storage
+
+Type: [Function](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function)
+
+#### Parameters
+
+-   `DI` **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** 
+
+Returns **[Storage](#storage)** 
 
 ### CreateStorageOptions
 
@@ -48,12 +64,13 @@ Type: [Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Globa
 
 #### Properties
 
+-   `DI` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** Registry storage in DI with this key. By default use `storage:<random key>` as key.
 -   `LIFO` **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** Use LIFO (last input first output) for storage subscribers. By default false
 -   `sync` **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** Disable async run watchers callback. Callbacks will run only after call `sync` storage method. By default false
 
 ### createStorage
 
-Create a new storage object.
+Create a new unique storage object for current DI.
 
 #### Parameters
 
@@ -69,10 +86,20 @@ export const { storage, useStorage } = createStorage( {
    email: '',
    sessionValidated: false,
    isAuthenticated: false
-} );
+}, { DI: 'session:storage' } );
 ```
 
-Returns **{storage: [Storage](#storage), useStorage: (function ())}** 
+Returns **{storage: [StorageGetter](#storagegetter), useStorage: (function ())}** 
+
+### storage
+
+Return storage for DI container
+
+#### Parameters
+
+-   `DI` **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** App DI container
+
+Returns **[Storage](#storage)** 
 
 ### useStorage
 
@@ -94,11 +121,11 @@ Decorator for component
 <script>
   import { useStorage } from '../../../storages/session';
 
-  class Profile extends Template {
+  function Profile {
 
   }
 
-  export default useStorage( 'sessionData' )( Profile );
+  export default Component( Template, useStorage( ref( 'sessionData' ) ), Profile );
 </script>
 ```
 

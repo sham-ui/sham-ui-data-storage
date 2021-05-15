@@ -1,5 +1,5 @@
 import nanoid from 'nanoid';
-import useStorageInComponent from './component-wrapper';
+import useStorageInComponent from './component-adapter';
 import storageFactory from './factory';
 
 /**
@@ -31,7 +31,7 @@ import storageFactory from './factory';
  *    isAuthenticated: false
  * }, { DI: 'session:storage' } );
  */
-export default function createStorageWithDI( fieldsWithDefault, options = {} ) {
+export default function createStorage( fieldsWithDefault, options = {} ) {
     const fields = Object.keys( fieldsWithDefault );
 
     const id = undefined === options.DI ?
@@ -43,7 +43,11 @@ export default function createStorageWithDI( fieldsWithDefault, options = {} ) {
     function getOrCreate( DI ) {
         let storage = DI.resolve( id );
         if ( storage === undefined ) {
-            storage = createStorage( fieldsWithDefault, options );
+            const {
+                LIFO = false, // By default LIFO disabled
+                sync = false  // By default sync disabled
+            } = options;
+            storage = storageFactory( fields, fieldsWithDefault, { LIFO, sync } );
             DI.bind( id, storage );
         }
         return storage;
@@ -74,42 +78,15 @@ export default function createStorageWithDI( fieldsWithDefault, options = {} ) {
          * <script>
          *   import { useStorage } from '../../../storages/session';
          *
-         *   class Profile extends Template {
+         *   function Profile {
          *
          *   }
          *
-         *   export default useStorage( 'sessionData' )( Profile );
+         *   export default Component( Template, useStorage( ref( 'sessionData' ) ), Profile );
          * </script>
          */
         useStorage( storageAlias ) {
-            return function( componentClass ) {
-                return useStorageInComponent(
-                    componentClass,
-                    storageAlias,
-                    getOrCreate,
-                    fields
-                );
-            };
+            return useStorageInComponent( storageAlias, getOrCreate, fields );
         }
     };
-}
-
-
-/**
- * Create a new storage object.
- * @inner
- * @param {Object} fieldsWithDefault Fields of storage
- * @param {CreateStorageOptions} [options] Extra options for storage
- * @return Storage
- */
-function createStorage( fieldsWithDefault, options = {} ) {
-    const {
-        LIFO = false, // By default LIFO disabled
-        sync = false  // By default sync disabled
-    } = options;
-    return storageFactory(
-        Object.keys( fieldsWithDefault ),
-        fieldsWithDefault,
-        { LIFO, sync }
-    );
 }
