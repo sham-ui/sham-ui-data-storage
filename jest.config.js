@@ -8,8 +8,8 @@ module.exports = {
                 'sfc'
             ],
             'transform': {
-                '^.+\\.sht$': 'sham-ui-jest-preprocessor',
-                '^.+\\.sfc$': 'sham-ui-jest-preprocessor',
+                '^.+\\.sht$': 'sham-ui-templates-jest-preprocessor',
+                '^.+\\.sfc$': 'sham-ui-templates-jest-preprocessor',
                 '^.+\\.js$': 'babel-jest'
             },
             'collectCoverageFrom': [
