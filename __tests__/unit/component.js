@@ -23,7 +23,7 @@ describe( 'component', () => {
                     </dl>
                 </template>
                 <script>
-                    export default Component( Template, useStorage( ref( 'user' ) ) );
+                    export default Component( Template, useStorage( $.user ) );
                 </script>
             `
         );
@@ -60,7 +60,7 @@ describe( 'component', () => {
                 </dl>
             </template>
             <script>
-                export default Component( Template, useStorage( ref( 'user' ) ) );
+                export default Component( Template, useStorage( $.user ) );
             </script>
         `;
 
@@ -118,7 +118,7 @@ describe( 'component', () => {
                     </dl>
                 </template>
                 <script>
-                    export default Component( Template, useStorage( ref( 'user' ) ) );
+                    export default Component( Template, useStorage( $.user ) );
                 </script>
             `
         );

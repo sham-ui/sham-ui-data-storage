@@ -20,11 +20,10 @@
     import { useStorage } from '../storages/user';
 
     function App( options ) {
-        const onInputName = ref();
         options( {
-            [ onInputName ]: () => {}
+            [ $.onInputName ]: () => {}
         } );
     }
 
-    export default Component( Template, useStorage( ref( 'user' ) ), App );
+    export default Component( Template, useStorage( $.user ), App );
 </script>

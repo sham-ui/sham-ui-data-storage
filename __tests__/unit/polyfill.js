@@ -32,7 +32,7 @@ it( 'with setImmediate polyfill', async() => {
                 </dl>
             </template>
             <script>
-                export default Component( Template, useStorage( ref( 'user' ) ) );
+                export default Component( Template, useStorage( $.user ) );
             </script>
         `
     );
