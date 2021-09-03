@@ -4,7 +4,7 @@
   "author": "Eugeny Burnashov <shamcode@gmail.com>",
   "main": "index.js",
   "module": "index.module.js",
-  "version": "2.0.0-alpha.8",
+  "version": "2.0.0-alpha.9",
   "license": "MIT",
   "scripts": {
     "start": "MACRO_REF_REPLACE=enabled rollup -w -c ./demo-app/rollup.config.js",
@@ -48,6 +48,7 @@
     "rollup-plugin-serve": "^1.1.0",
     "rollup-plugin-sham-ui-templates": "^1.0.9",
     "sass": "^1.32.12",
+    "sham-ui": "^5.0.0-alpha.6",
     "sham-ui-directives": "^5.0.0-alpha.8",
     "sham-ui-templates-jest-preprocessor": "^1.2.5",
     "sham-ui-macro": "^3.5.0",
@@ -58,7 +59,6 @@
     "stylelint-scss": "^3.8.0"
   },
   "dependencies": {
-    "nanoid": "^1.3.1",
-    "sham-ui": "^5.0.0-alpha.5"
+    "nanoid": "^1.3.1"
   }
 }
