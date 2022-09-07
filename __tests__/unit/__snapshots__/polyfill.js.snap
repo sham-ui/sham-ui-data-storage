@@ -3,7 +3,6 @@
 exports[`with setImmediate polyfill: after update firstName & wait updating 1`] = `
 Object {
   "Options": Object {
-    "ID": "component",
     "user": Object {
       "firstName": "Jordan",
       "lastName": "Smith",
@@ -23,7 +22,6 @@ Object {
 exports[`with setImmediate polyfill: after update firstName 1`] = `
 Object {
   "Options": Object {
-    "ID": "component",
     "user": Object {
       "firstName": "Jordan",
       "lastName": "Smith",
@@ -43,7 +41,6 @@ Object {
 exports[`with setImmediate polyfill: after update lastName & wait updating 1`] = `
 Object {
   "Options": Object {
-    "ID": "component",
     "user": Object {
       "firstName": "Jordan",
       "lastName": "Shah",
@@ -63,7 +60,6 @@ Object {
 exports[`with setImmediate polyfill: after update lastName 1`] = `
 Object {
   "Options": Object {
-    "ID": "component",
     "user": Object {
       "firstName": "Jordan",
       "lastName": "Shah",
@@ -83,7 +79,6 @@ Object {
 exports[`with setImmediate polyfill: initial 1`] = `
 Object {
   "Options": Object {
-    "ID": "component",
     "user": Object {
       "firstName": "John",
       "lastName": "Smith",
@@ -103,7 +98,6 @@ Object {
 exports[`with setImmediate polyfill: lastName don't changed 1`] = `
 Object {
   "Options": Object {
-    "ID": "component",
     "user": Object {
       "firstName": "Jordan",
       "lastName": "Shah",

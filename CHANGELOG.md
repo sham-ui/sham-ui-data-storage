@@ -1,3 +1,6 @@
+## 3.0.0-alpha.1
+* Update dependencies
+
 ## 2.0.0
 * Update dependencies
 

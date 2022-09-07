@@ -3,7 +3,6 @@
 exports[`component base: after update firstName & wait updating 1`] = `
 Object {
   "Options": Object {
-    "ID": "component",
     "user": Object {
       "firstName": "Jordan",
       "lastName": "Smith",
@@ -23,7 +22,6 @@ Object {
 exports[`component base: after update firstName 1`] = `
 Object {
   "Options": Object {
-    "ID": "component",
     "user": Object {
       "firstName": "Jordan",
       "lastName": "Smith",
@@ -43,7 +41,6 @@ Object {
 exports[`component base: after update lastName & wait updating 1`] = `
 Object {
   "Options": Object {
-    "ID": "component",
     "user": Object {
       "firstName": "Jordan",
       "lastName": "Shah",
@@ -63,7 +60,6 @@ Object {
 exports[`component base: after update lastName 1`] = `
 Object {
   "Options": Object {
-    "ID": "component",
     "user": Object {
       "firstName": "Jordan",
       "lastName": "Shah",
@@ -83,7 +79,6 @@ Object {
 exports[`component base: initial 1`] = `
 Object {
   "Options": Object {
-    "ID": "component",
     "user": Object {
       "firstName": "John",
       "lastName": "Smith",
@@ -103,7 +98,6 @@ Object {
 exports[`component base: lastName don't changed 1`] = `
 Object {
   "Options": Object {
-    "ID": "component",
     "user": Object {
       "firstName": "Jordan",
       "lastName": "Shah",
@@ -123,7 +117,6 @@ Object {
 exports[`component remove: after firstName & lastName 1`] = `
 Object {
   "Options": Object {
-    "ID": "component",
     "test": true,
   },
   "html": "
@@ -142,7 +135,6 @@ Object {
 exports[`component remove: after update firstName 1`] = `
 Object {
   "Options": Object {
-    "ID": "component",
     "test": true,
   },
   "html": "
@@ -161,7 +153,6 @@ Object {
 exports[`component remove: after update lastName 1`] = `
 Object {
   "Options": Object {
-    "ID": "component",
     "test": false,
   },
   "html": "<!--0-->",
@@ -171,7 +162,6 @@ Object {
 exports[`component remove: initial 1`] = `
 Object {
   "Options": Object {
-    "ID": "component",
     "test": true,
   },
   "html": "
@@ -190,7 +180,6 @@ Object {
 exports[`component remove: test === false 1`] = `
 Object {
   "Options": Object {
-    "ID": "component",
     "test": false,
   },
   "html": "<!--0-->",
@@ -200,7 +189,6 @@ Object {
 exports[`component remove: test === true 1`] = `
 Object {
   "Options": Object {
-    "ID": "component",
     "test": true,
   },
   "html": "
@@ -219,7 +207,6 @@ Object {
 exports[`component sync: after update firstName & wait updating 1`] = `
 Object {
   "Options": Object {
-    "ID": "component",
     "user": Object {
       "firstName": "Jordan",
       "lastName": "Smith",
@@ -239,7 +226,6 @@ Object {
 exports[`component sync: after update firstName 1`] = `
 Object {
   "Options": Object {
-    "ID": "component",
     "user": Object {
       "firstName": "Jordan",
       "lastName": "Smith",
@@ -259,7 +245,6 @@ Object {
 exports[`component sync: after update lastName & wait updating 1`] = `
 Object {
   "Options": Object {
-    "ID": "component",
     "user": Object {
       "firstName": "Jordan",
       "lastName": "Shah",
@@ -279,7 +264,6 @@ Object {
 exports[`component sync: after update lastName 1`] = `
 Object {
   "Options": Object {
-    "ID": "component",
     "user": Object {
       "firstName": "Jordan",
       "lastName": "Shah",
@@ -299,7 +283,6 @@ Object {
 exports[`component sync: lastName don't changed 1`] = `
 Object {
   "Options": Object {
-    "ID": "component",
     "user": Object {
       "firstName": "Jordan",
       "lastName": "Shah",
